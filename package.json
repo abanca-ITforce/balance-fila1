@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve -o --port=4211",
-    "build": "ng build --prod",
+    "build": "ng build --prod --baseHref=/dist/ab-balance/",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
