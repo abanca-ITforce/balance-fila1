@@ -11,6 +11,7 @@ import { CopyrightComponent } from './shell/copyright/copyright.component';
   declarations: [ShellComponent, TopBarComponent, MainContentComponent, CopyrightComponent],
   imports: [
     CommonModule
-  ]
+  ],
+  exports: [ShellComponent]
 })
 export class LayoutModule { }
