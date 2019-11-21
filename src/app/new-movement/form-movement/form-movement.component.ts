@@ -8,20 +8,11 @@ import { FormBuilder, Validators } from '@angular/forms';
 })
 export class FormMovementComponent {
   addressForm = this.fb.group({
-    company: null,
-    firstName: [null, Validators.required],
-    lastName: [null, Validators.required],
-    address: [null, Validators.required],
-    address2: null,
-    city: [null, Validators.required],
-    state: [null, Validators.required],
-    postalCode: [null, Validators.compose([
-      Validators.required, Validators.minLength(5), Validators.maxLength(5)])
-    ],
-    shipping: ['free', Validators.required]
+    fecha: null,
+    concepto: [null, Validators.required],
+    importe: [null, Validators.required],
+    tipo: ['ingreso', Validators.required]
   });
-
-  hasUnitNumber = false;
 
   states = [
     {name: 'Alabama', abbreviation: 'AL'},
