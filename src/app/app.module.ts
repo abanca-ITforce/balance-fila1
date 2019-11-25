@@ -23,7 +23,7 @@ import { MAT_DATE_LOCALE, DateAdapter } from '@angular/material/core';
     HomeModule,
     BrowserAnimationsModule,
   ],
-  providers: [{provide: MAT_DATE_LOCALE, useValue: 'es-ES'}],
+  providers: [{provide: MAT_DATE_LOCALE, useValue: 'es'}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

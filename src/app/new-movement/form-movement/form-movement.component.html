@@ -44,6 +44,23 @@
           </mat-radio-group>
         </div>
       </div>
+      <div class="row">
+        <div class="col">
+      <mat-form-field>
+        <mat-label>Seleccionar</mat-label>
+        <mat-select *ngIf="movementForm.controls['tipo'].value == 'ingreso'" formControlName="subtipo">
+          <mat-option *ngFor="let ingreso of ingresos" [value]="ingreso">
+            {{ingreso}}
+          </mat-option>
+        </mat-select>
+        <mat-select *ngIf="movementForm.controls['tipo'].value == 'gasto'" formControlName="subtipo">
+          <mat-option *ngFor="let gasto of gastos" [value]="gasto">
+            {{gasto}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
     </mat-card-content>
     <mat-card-actions>
       <button mat-raised-button color="primary" [disabled]="movementForm.invalid" type="submit" >Enviar</button>
