@@ -20,7 +20,8 @@ export class FormMovementComponent {
     concepto: [null, Validators.required],
     importe: [null, Validators.required],
     tipo: ['ingreso', Validators.required],
-    subtipo: [null, Validators.required]
+    subtipo: [null, Validators.required],
+    id: [this.ms.movementsList.length]
   });
 
   constructor(private fb: FormBuilder, private ms: MovementService) {}

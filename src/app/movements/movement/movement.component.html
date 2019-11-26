@@ -1,2 +1,21 @@
 <h2>Ver movimiento</h2>
-<p>{{ movementDescr }}</p>
+<div>
+  <span>Fecha: </span>
+  <span>{{ movementDate | date: 'd/M/yyyy' }}</span>
+</div>
+<div>
+  <span>Concepto: </span>
+  <span>{{ movementConcept }}</span>
+</div>
+<div>
+  <span>Importe: </span>
+  <span>{{ movementAmount }} €</span>
+</div>
+<div>
+  <span>Tipo: </span>
+  <span>{{ movementType }}</span>
+</div>
+<div>
+  <span>Subtipo: </span>
+  <span>{{ movementSubtype }}</span>
+</div>

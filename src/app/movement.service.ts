@@ -4,28 +4,37 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class MovementService {
+  movementsList;
 
-  constructor() { }
+  constructor() {
+    const temp = localStorage.getItem('movementsList');
+    if (temp) {
+      this.movementsList = JSON.parse(temp);
+    } else {
+      this.movementsList = [];
+    }
+  }
 
-  getIngresos(){
+  getIngresos() {
     return [
-      'nómina',
-      'ventas',
-      'donaciones',
-      'otros'
+      'Nómina',
+      'Ventas',
+      'Donaciones',
+      'Otros'
     ];
   }
 
-  getGastos(){
+  getGastos() {
     return [
-      'hipoteca',
-      'gasolina',
-      'supermercado',
-      'otros'
+      'Hipoteca',
+      'Gasolina',
+      'Supermercado',
+      'Otros'
     ];
   }
 
-  postMovement(movement){
-    alert(JSON.stringify(movement));
+  postMovement(movement) {
+    this.movementsList.push(movement);
+    localStorage.setItem('movementsList', JSON.stringify(this.movementsList));
   }
 }

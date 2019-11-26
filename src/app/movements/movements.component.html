@@ -12,7 +12,7 @@
   <!-- Fecha Column -->
   <ng-container matColumnDef="fecha">
     <th mat-header-cell *matHeaderCellDef> Fecha </th>
-    <td mat-cell *matCellDef="let element"> {{element.fecha}} </td>
+    <td mat-cell *matCellDef="let element"> {{element.fecha | date:"d/M/yyyy" }} </td>
   </ng-container>
 
   <!-- Concepto Column -->

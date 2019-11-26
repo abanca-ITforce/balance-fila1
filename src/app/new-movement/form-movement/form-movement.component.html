@@ -1,4 +1,4 @@
-<form [formGroup]="movementForm" novalidate (ngSubmit)="onSubmit()">
+<form [formGroup]="movementForm" novalidate>
   <mat-card class="shipping-card">
     <mat-card-header>
       <mat-card-title>Nuevo movimiento</mat-card-title>
@@ -63,7 +63,7 @@
   </div>
     </mat-card-content>
     <mat-card-actions>
-      <button mat-raised-button color="primary" [disabled]="movementForm.invalid" type="submit" >Enviar</button>
+      <button mat-raised-button color="primary" [disabled]="movementForm.invalid" type="submit" (click)="onSubmit()">Enviar</button>
     </mat-card-actions>
   </mat-card>
 </form>
