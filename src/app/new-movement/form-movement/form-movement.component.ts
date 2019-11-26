@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { MovementService } from 'src/app/movement.service';
 
 @Component({
   selector: 'ab-form-movement',
@@ -10,19 +11,9 @@ export class FormMovementComponent {
 
   maxDate = new Date(Date.now());
 
-  ingresos = [
-    'nómina',
-    'ventas',
-    'donaciones',
-    'otros'
-  ];
+  ingresos = this.ms.getIngresos();
 
-  gastos = [
-    'hipoteca',
-    'gasolina',
-    'supermercado',
-    'otros'
-  ];
+  gastos = this.ms.getGastos();
 
   movementForm = this.fb.group({
     fecha: [null, Validators.required],
@@ -32,10 +23,10 @@ export class FormMovementComponent {
     subtipo: [null, Validators.required]
   });
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private ms: MovementService) {}
 
   onSubmit() {
-    alert(JSON.stringify(this.movementForm.value));
+    this.ms.postMovement(this.movementForm.value);
   }
 
   isDirty(controlName: string) {
