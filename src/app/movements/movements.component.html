@@ -1,38 +1,46 @@
-<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-
-  <!--- Note that these columns can be defined in any order.
+<mat-card class="shipping-card">
+  <mat-card-header>
+    <mat-card-title>Nuevo movimiento</mat-card-title>
+  </mat-card-header>
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <!--- Note that these columns can be defined in any order.
         The actual rendered columns are set as a property on the row definition" -->
 
-  <!-- Position Column -->
-  <ng-container matColumnDef="position">
-    <th mat-header-cell *matHeaderCellDef> No. </th>
-    <td mat-cell *matCellDef="let element"> {{element.position}} </td>
-  </ng-container>
+    <!-- Position Column -->
+    <ng-container matColumnDef="position">
+      <th mat-header-cell *matHeaderCellDef>No.</th>
+      <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+    </ng-container>
 
-  <!-- Fecha Column -->
-  <ng-container matColumnDef="fecha">
-    <th mat-header-cell *matHeaderCellDef> Fecha </th>
-    <td mat-cell *matCellDef="let element"> {{element.fecha | date:"d/M/yyyy" }} </td>
-  </ng-container>
+    <!-- Fecha Column -->
+    <ng-container matColumnDef="fecha">
+      <th mat-header-cell *matHeaderCellDef>Fecha</th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.fecha | date: 'd/M/yyyy' }}
+      </td>
+    </ng-container>
 
-  <!-- Concepto Column -->
-  <ng-container matColumnDef="concepto">
-    <th mat-header-cell *matHeaderCellDef> Concepto </th>
-    <td mat-cell *matCellDef="let element"> {{element.concepto}} </td>
-  </ng-container>
+    <!-- Concepto Column -->
+    <ng-container matColumnDef="concepto">
+      <th mat-header-cell *matHeaderCellDef>Concepto</th>
+      <td mat-cell *matCellDef="let element">{{ element.concepto }}</td>
+    </ng-container>
 
-  <!-- Importe Column -->
-  <ng-container matColumnDef="importe">
-    <th mat-header-cell *matHeaderCellDef> Importe </th>
-    <td mat-cell *matCellDef="let element"> {{element.importe}} </td>
-  </ng-container>
+    <!-- Importe Column -->
+    <ng-container matColumnDef="importe">
+      <th mat-header-cell *matHeaderCellDef>Importe</th>
+      <td mat-cell *matCellDef="let element">{{ element.importe }}</td>
+    </ng-container>
 
-  <!-- Ver Column -->
-  <ng-container matColumnDef="id">
-    <th mat-header-cell *matHeaderCellDef> Detalle </th>
-    <td mat-cell *matCellDef="let element"><a routerLink="{{element.id}}"> Ver </a></td>
-  </ng-container>
+    <!-- Ver Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef>Detalle</th>
+      <td mat-cell *matCellDef="let element">
+        <a routerLink="{{ element.id }}"> Ver </a>
+      </td>
+    </ng-container>
 
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-</table>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+</mat-card>

@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { MovementsRoutingModule } from './movements-routing.module';
 import { MovementsComponent } from './movements.component';
 import {MatTableModule} from '@angular/material/table';
+import { MatCardModule } from '@angular/material/card';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import {MatTableModule} from '@angular/material/table';
   imports: [
     CommonModule,
     MovementsRoutingModule,
-    MatTableModule
+    MatTableModule,
+    MatCardModule
   ]
 })
 export class MovementsModule { }
