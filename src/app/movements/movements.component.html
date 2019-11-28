@@ -44,3 +44,16 @@
     <tr mat-row *matRowDef="let row; columns: displayedColumns; let id = index;"></tr>
   </table>
 </mat-card>
+
+<!-- <mat-nav-list *ngIf="movementsList$ | async as movementsList; else empty">
+  <a
+    *ngFor="let movement of movementsList"
+    mat-list-item
+    [routerLink]="movement.description"
+  >
+    {{ movement.concepto }}
+  </a>
+</mat-nav-list>
+<ng-template #empty>
+  <h1>CARGANDO ...</h1>
+</ng-template> -->
