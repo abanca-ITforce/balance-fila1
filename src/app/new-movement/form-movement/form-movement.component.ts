@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter, Input } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { MovementService } from 'src/app/movement.service';
 
@@ -8,26 +8,26 @@ import { MovementService } from 'src/app/movement.service';
   styleUrls: ['./form-movement.component.css']
 })
 export class FormMovementComponent {
+  @Input() maxDate;
 
-  maxDate = new Date(Date.now());
+  @Input() ingresos;
 
-  ingresos = this.ms.getIngresos();
-
-  gastos = this.ms.getGastos();
+  @Input() gastos;
 
   movementForm = this.fb.group({
     fecha: [null, Validators.required],
     concepto: [null, Validators.required],
     importe: [null, Validators.required],
     tipo: ['ingreso', Validators.required],
-    subtipo: [null, Validators.required],
-    id: [this.ms.movementsList.length++]
+    subtipo: [null, Validators.required]
   });
 
-  constructor(private fb: FormBuilder, private ms: MovementService) {}
+  constructor(private fb: FormBuilder) {}
+
+  @Output() post = new EventEmitter<any>();
 
   onSubmit() {
-    this.ms.postMovement(this.movementForm.value);
+    this.post.emit(this.movementForm.value);
   }
 
   isDirty(controlName: string) {

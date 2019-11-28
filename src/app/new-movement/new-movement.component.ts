@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { MovementService } from '../movement.service';
 
 @Component({
   selector: 'ab-new-movement',
@@ -6,10 +7,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./new-movement.component.css']
 })
 export class NewMovementComponent implements OnInit {
+  maxDate = new Date(Date.now());
 
-  constructor() { }
+  ingresos = this.ms.getIngresos();
 
-  ngOnInit() {
+  gastos = this.ms.getGastos();
+
+  constructor(private ms: MovementService) {}
+
+  ngOnInit() {}
+
+  onPost(movement) {
+    this.ms.postMovement(movement);
   }
-
 }

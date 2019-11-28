@@ -18,7 +18,9 @@ export class MovementsComponent implements OnInit {
   displayedColumns: string[] = ['position', 'fecha', 'concepto', 'importe', 'id'];
   dataSource = this.ms.movementsList;
 
-  constructor(private ms: MovementService) { }
+  constructor(private ms: MovementService) {
+    // console.log(this.ms.movementsList);
+   }
 
   ngOnInit() {
   }
