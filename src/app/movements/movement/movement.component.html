@@ -1,21 +1,33 @@
-<h2>Ver movimiento</h2>
-<div>
-  <span>Fecha: </span>
-  <span>{{ movementDate | date: 'd/M/yyyy' }}</span>
-</div>
-<div>
-  <span>Concepto: </span>
-  <span>{{ movementConcept }}</span>
-</div>
-<div>
-  <span>Importe: </span>
-  <span>{{ movementAmount }} €</span>
-</div>
-<div>
-  <span>Tipo: </span>
-  <span>{{ movementType }}</span>
-</div>
-<div>
-  <span>Subtipo: </span>
-  <span>{{ movementSubtype }}</span>
-</div>
+<mat-card *ngIf="movement$ | async as movement">
+  <mat-card-header>
+    <mat-card-title>Ver movimiento</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <div>
+      <span>Fecha: </span>
+      <span>{{ movement.fecha || movement.date || movement.dueDate }}</span>
+    </div>
+    <div>
+      <span>Concepto: </span>
+      <span>{{ movement.concepto || movement.description || movement.concept }}</span>
+    </div>
+    <div>
+      <span>Importe: </span>
+      <span>{{ movement.amount || movement.importe }} €</span>
+    </div>
+    <div>
+      <span>Tipo: </span>
+      <span>{{ movement.type || movement.tipo }}</span>
+    </div>
+    <div>
+      <span>Subtipo: </span>
+      <span>{{ movement.selectType || movement.selector || movement.subtipo }}</span>
+    </div>
+
+  </mat-card-content>
+  <mat-card-actions>
+    <ng-container>
+
+    </ng-container>
+  </mat-card-actions>
+</mat-card>

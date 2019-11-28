@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 
 export interface MovementsElement {
   position: number;
-  fecha: any;
+  fecha: string;
   concepto: string;
   importe: number;
   id: number;
@@ -17,12 +17,10 @@ export interface MovementsElement {
 })
 export class MovementsComponent implements OnInit {
   displayedColumns: string[] = ['position', 'fecha', 'concepto', 'importe', 'id'];
-  dataSource = this.ms.movementsList;
-  movementsList$: Observable<any[]>;
+  dataSource;
 
   constructor(private ms: MovementService) {
-    // console.log(this.ms.movementsList);
-    this.movementsList$ = this.ms.getMovements$();
+    this.dataSource = this.ms.getMovements$();
    }
 
   ngOnInit() {

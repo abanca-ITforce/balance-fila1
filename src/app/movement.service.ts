@@ -30,6 +30,12 @@ export class MovementService {
     return this.http.get<any[]>(this.url).pipe(map(data => (data ? data : [])));
   }
 
+  getMovementById$(id) {
+    return this.http
+      .get<any>(this.url + '/' + id)
+      .pipe(map(data => (data ? data : {})));
+  }
+
   postMovement(movement) {
     // this.movementsList.push(movement);
     // localStorage.setItem('movementsList', JSON.stringify(this.movementsList));
@@ -39,5 +45,9 @@ export class MovementService {
           .get<any[]>(this.url)
           .subscribe(data => (this.movementsList = data ? data : []))
     });
+  }
+
+  putMovement$(movement) {
+    return this.http.put(this.url + '/' + movement._id, movement);
   }
 }
